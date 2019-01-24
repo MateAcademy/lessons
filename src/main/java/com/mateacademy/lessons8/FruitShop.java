@@ -35,7 +35,7 @@ public class FruitShop {
 		this.fruits = fruits;
 	}
 
-	private boolean fruitIsValid(Fruit fruit, LocalDate date, int daysToChange) {
+	public boolean fruitIsValid(Fruit fruit, LocalDate date, int daysToChange) {
 		return date.isAfter(fruit.getDeliveryDate())
 				&& ChronoUnit.DAYS.between(fruit.getDeliveryDate(), date) <= daysToChange;
 	}

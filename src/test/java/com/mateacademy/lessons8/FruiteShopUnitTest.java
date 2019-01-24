@@ -1,15 +1,26 @@
 package com.mateacademy.lessons8;
 
+import java.time.Month;
 import org.junit.*;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.Spy;
+import org.mockito.junit.MockitoJUnitRunner;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.when;
 
 
-
+@RunWith(MockitoJUnitRunner.class)
 public class FruiteShopUnitTest {
+
 
         private FruitShop fruitShop;
         private static Fruit apple;
@@ -124,7 +135,7 @@ public class FruiteShopUnitTest {
         public void testReSetPricexRealization2() {
                 List<Fruit> expected = new ArrayList<>();
                 expected.add(new Fruit(FruitType.APPLE, 30, LocalDate.of(2019, 01, 04), 6, null));
-                List<Fruit> actual = fruitShop.reSetPricexRealization(50, 17, FruitType.APPLE);
+                List<Fruit> actual = fruitShop.reSetPricexRealization(50, 40, FruitType.APPLE);
                 assertEquals(expected, actual);
         }
 }
