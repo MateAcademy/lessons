@@ -55,9 +55,7 @@ public class StringChangerServiceUnitTestMockUnitTest {
         String actual = stringChangerService.addStartUpperInputLower("some","Mate");
         assertEquals(expected, actual);
     }
-
-
-
+    
     @Test(expected = NullPointerException.class)
     public void testAddStartUpperInputLowerWhenStartNull() {
         when(lowerUpperService.toUpper(null)).thenThrow(new NullPointerException());
