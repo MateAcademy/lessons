@@ -28,9 +28,17 @@ public class StringChangerService {
 		return lowerUpperService.toUpper(start) + lowerUpperService.toLower(input);
 	}
 
+
+
 	public String addStartAndEnd(String start, String end, String input) {
 		return addStart(start, input) + end;
 	}
+
+
+
+
+
+
 
 	public String addStartAndEndUpper(String start, String end, String input) {
 		return addStart(start, input) + lowerUpperService.toUpper(end);

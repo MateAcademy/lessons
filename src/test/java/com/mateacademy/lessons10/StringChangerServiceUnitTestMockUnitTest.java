@@ -55,7 +55,17 @@ public class StringChangerServiceUnitTestMockUnitTest {
         String actual = stringChangerService.addStartUpperInputLower("some","Mate");
         assertEquals(expected, actual);
     }
-    
+
+// TODO нужно разобраться с этим вопросом!!!!!!
+//    @Test
+//    public void testAddStartUpperInputLowerWithWordHELLO() {
+//       // when(lowerUpperService.toLower("Mate")).thenReturn("lovervalue");
+//        when(lowerUpperService.toUpper(Mockito.anyString())).thenReturn("UPPERVALUE");
+//        String expected = "UPPERVALUEhello";
+//        String actual = stringChangerService.addStartUpperInputLower("some","HELLO");
+//        assertEquals(expected, actual);
+//    }
+
     @Test(expected = NullPointerException.class)
     public void testAddStartUpperInputLowerWhenStartNull() {
         when(lowerUpperService.toUpper(null)).thenThrow(new NullPointerException());
@@ -69,6 +79,22 @@ public class StringChangerServiceUnitTestMockUnitTest {
         verify(lowerUpperService).toLower("sTArtINputeNd");
     }
 
+    @Test
+    public void addStartAndEnd() {
+        String expected = "lovervalueInput";
+        doReturn("lovervalue").when(stringChangerService).addStart("aa", "BB");
+    String actual = stringChangerService.addStartAndEnd("aa", "Input", "BB");
+            assertEquals(expected, actual);
+    }
+
+    @Test
+    public void addStartAndEndWithConstructionWhen() {
+        String expected = "lovervalueInput";
+        when(stringChangerService.addStart("aa", "BB")).thenReturn("lovervalue");
+//        doReturn("lovervalue").when(stringChangerService).addStart("aa", "BB");
+        String actual = stringChangerService.addStartAndEnd("aa", "Input", "BB");
+        assertEquals(expected, actual);
+    }
 
     @Test
     public void testaddStartAndEndUpper() {
@@ -78,15 +104,6 @@ public class StringChangerServiceUnitTestMockUnitTest {
         String actual = stringChangerService.addStartUpperInputLower("some","some");
         assertEquals(expected, actual);
     }
-
-    @Test
-    public void addStartAndEnd() {
-        String expected = "lovervalueInput";
-        doReturn("lovervalue").when(stringChangerService).addStart("aa", "BB");
-    String actual = stringChangerService.addStartAndEnd("aa", "Input", "BB");
-            assertEquals(expected, actual);
-    }
-
     @Test
     public void testAddStartAndEndTotalLower() {
         doReturn("startinput").when(stringChangerService).addStart("start", "input");

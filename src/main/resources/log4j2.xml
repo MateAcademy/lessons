@@ -29,7 +29,7 @@
 		SMTPHost="smtp.gmail.com"
 			SMTPPort="465" 
 			SMTPUsername="ava.itlabs@gmail.com"
-			SMTPPassword="vfvfgfgf23"
+			SMTPPassword="xxx"
 			To="ava.itlabs@gmail.com"
 			from="ava.itlabs@gmail.com"
 			Subject="Calculator Error Log">
