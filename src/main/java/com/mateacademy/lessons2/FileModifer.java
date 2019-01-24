@@ -24,7 +24,7 @@ public class FileModifer {
                 List<String> fileLines = java.nio.file.Files.readAllLines(inputPath);
                 List<String> linesToUpperCase = fileLines.stream().map(s -> s.toUpperCase())
                         .map(s -> s.replaceAll("S", "!!!!")).collect(Collectors.toList());
-                Path outputPath = Paths.get("src/main/resources/lesson01/" + outputFileName);
+                Path outputPath = Paths.get("src/Main/resources/lesson01/" + outputFileName);
                 java.nio.file.Files.write(outputPath, linesToUpperCase, StandardOpenOption.CREATE,
                         StandardOpenOption.WRITE);
                 System.out.println("Done!!!");

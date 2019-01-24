@@ -13,7 +13,7 @@ public class App3 {
 
     public static void openfile() {
         try {
-            file = new Scanner(new File("src\\main\\resources\\input.txt"));
+            file = new Scanner(new File("src\\Main\\resources\\input.txt"));
 
         } catch (Exception e) {
             System.out.println("Файл не найден");

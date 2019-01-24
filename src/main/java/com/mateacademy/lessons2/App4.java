@@ -8,7 +8,7 @@ public class App4 {
     public static void main(String[] args) {
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\input.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("src\\Main\\resources\\input.txt"));
             String strings;
             while ((strings = reader.readLine()) != null) {
                 System.out.println(strings.toUpperCase().replaceAll("J", "!!!!!"));
