@@ -1,5 +1,9 @@
 package com.mateacademy.lessons11.forStudentsModel;
 
+import com.mateacademy.lessons11.MateGroup;
+
+import java.util.List;
+
 /**
  * @author spasko
  */
@@ -27,5 +31,6 @@ public class HumanResource extends Person {
 	public String toString() {
 		return "HumanResource [startWorkYear=" + startWorkYear + ", " + super.toString() + "]";
 	}
+
 
 }
