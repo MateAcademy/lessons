@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-schema="MA_STUDENT" match-name="ORDERS" />
+	<table-filter match-schema="MA_STUDENT" match-name="PRODUCTS" />
+	<table schema="MA_STUDENT" name="ORDERS" class="lesson14.jdbc.Order">
+		<column name="REP" exclude="true" />
+		<column name="CUST" exclude="true" />
+		<column name="ORDER_NUM">
+			<meta attribute="use-in-tostring">true</meta>
+		</column>
+		<column name="AMOUNT">
+			<meta attribute="use-in-tostring">true</meta>
+		</column>
+		<column name="MFR">
+			<meta attribute="use-in-tostring">true</meta>
+		</column>
+		<column name="PRODUCT">
+			<meta attribute="use-in-tostring">true</meta>
+		</column>
+		<column name="ORDER_DATE">
+			<meta attribute="use-in-tostring">true</meta>
+		</column>
+		<column name="QTY">
+			<meta attribute="use-in-tostring">true</meta>
+		</column>
+	</table>
+	<table schema="MA_STUDENT" name="PRODUCTS" class="lesson14.jdbc.Product">
+		<column name="PRODUCT_ID">
+			<meta attribute="use-in-tostring">true</meta>
+		</column>
+		<column name="MFR_ID">
+			<meta attribute="use-in-tostring">true</meta>
+		</column>
+		<column name="PRICE">
+			<meta attribute="use-in-tostring">true</meta>
+		</column>
+		<column name="QTY_ON_HAND">
+			<meta attribute="use-in-tostring">true</meta>
+		</column>
+		<column name="DESCRIPTION">
+			<meta attribute="use-in-tostring">true</meta>
+		</column>
+	</table>
+</hibernate-reverse-engineering>

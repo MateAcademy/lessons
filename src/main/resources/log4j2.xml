@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
-<xml status="WARN" monitorInterval="30">
+<Configuration status="WARN" monitorInterval="30">
 	<Properties>
 		<Property name="LOG_PATTERN">
-			%d{yyyy-MM-dd HH:mm:ss} | %-5p | [%t] %C{2}:%L -- %m%n
+			%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2}	(%F:%L) -- %m%n
 		</Property>
 	</Properties>
 	<Appenders>
@@ -28,10 +28,10 @@
 		SMTPProtocol="smtps" 
 		SMTPHost="smtp.gmail.com"
 			SMTPPort="465" 
-			SMTPUsername="ava.itlabs@gmail.com"
-			SMTPPassword="xxx"
-			To="ava.itlabs@gmail.com"
-			from="ava.itlabs@gmail.com"
+			SMTPUsername="paskoserhii88@gmail.com" 
+			SMTPPassword="yourPassword"
+			To="paskoserhii88@gmail.com"
+			from="paskoserhii88@gmail.com" 
 			Subject="Calculator Error Log">
 		</SMTP>
 
@@ -48,4 +48,4 @@
 		</Root>
 
 	</Loggers>
-</xml>
+</Configuration>

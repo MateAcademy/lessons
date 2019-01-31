@@ -1,12 +1,12 @@
 package com.mateacademy.lessons12.rest;
 
-import com.mateacademy.lessons11.Person;
 import javax.ws.rs.core.Response;
+
+import com.mateacademy.lessons11.*;
 
 /**
  * @author spasko
  */
-
 
 public interface MateGroupService {
 

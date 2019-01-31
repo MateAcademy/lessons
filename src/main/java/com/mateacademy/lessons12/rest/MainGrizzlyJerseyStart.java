@@ -1,15 +1,14 @@
 package com.mateacademy.lessons12.rest;
 
-import com.sun.jersey.api.container.grizzly.GrizzlyWebContainerFactory;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.sun.jersey.api.container.grizzly.GrizzlyWebContainerFactory;
+
 /**
  * @author spasko
  */
-
 public class MainGrizzlyJerseyStart {
 	public static void main(String[] args) throws IOException {
 
@@ -25,4 +24,3 @@ public class MainGrizzlyJerseyStart {
 				.println(String.format("Jersey started with WADL available at %sapplication.wadl.", baseUri, baseUri));
 	}
 }
-

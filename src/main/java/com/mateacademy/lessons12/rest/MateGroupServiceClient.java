@@ -14,7 +14,6 @@ import javax.ws.rs.core.Response.Status;
 /**
  * @author spasko
  */
-
 public class MateGroupServiceClient {
 
 	public static void main(String[] args) {
@@ -77,4 +76,3 @@ public class MateGroupServiceClient {
 	}
 
 }
-

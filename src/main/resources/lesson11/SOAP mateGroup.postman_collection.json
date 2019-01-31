@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "fa89382f-9380-4979-bd90-d6a2f6fd0ead",
+		"name": "SOAP mateGroup",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getMateGroup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:pm=\"http://soap.lesson11/\">\n    <soapenv:Header/>\n    <soapenv:Body>\n        <pm:getMateGroup/>\n    </soapenv:Body>\n</soapenv:Envelope>"
+				},
+				"url": {
+					"raw": "http://localhost:9999/ws/mate?wsdl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"ws",
+						"mate"
+					],
+					"query": [
+						{
+							"key": "wsdl",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add to MateGroup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "text/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:pm=\"http://soap.lesson11/\">\n    <soapenv:Header/>\n    <soapenv:Body>\n        <pm:addStudents>\n            <arg0 xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"pm:student\">\n                <name>First</name>\n                <yearOfBorn>1995</yearOfBorn>\n            </arg0>\n            <arg0 xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"pm:teacher\">\n                <name>Second</name>\n                <salary>666</salary>\n                <surname>Second</surname>\n                <yearOfBorn>1990</yearOfBorn>\n            </arg0>\n        </pm:addStudents>\n    </soapenv:Body>\n</soapenv:Envelope>"
+				},
+				"url": {
+					"raw": "http://localhost:9999/ws/mate?wsdl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"ws",
+						"mate"
+					],
+					"query": [
+						{
+							"key": "wsdl",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

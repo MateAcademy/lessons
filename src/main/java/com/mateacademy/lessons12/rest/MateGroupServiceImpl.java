@@ -1,8 +1,5 @@
 package com.mateacademy.lessons12.rest;
 
-import com.mateacademy.lessons11.MateGroup;
-import com.mateacademy.lessons11.Person;
-
 import java.util.Arrays;
 
 import javax.ws.rs.Consumes;
@@ -16,10 +13,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import com.mateacademy.lessons11.*;
+
+
 /**
  * @author spasko
  */
-
 @Path("/rs/mate")
 public class MateGroupServiceImpl implements MateGroupService {
 	private MateGroup mateGroup = MateGroup.mateGroupExampleCreator();
@@ -45,4 +44,3 @@ public class MateGroupServiceImpl implements MateGroupService {
 	}
 
 }
-
