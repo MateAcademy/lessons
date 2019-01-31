@@ -1,7 +1,7 @@
 package com.mateacademy.lessons12.soap;
 
-import com.mateacademy.lessons11.MateGroup;
-import com.mateacademy.lessons11.Person;
+import com.mateacademy.lessons11.*;
+
 
 import java.util.List;
 
@@ -24,4 +24,7 @@ public interface MateGroupService {
 
 	@WebMethod
 	public MateGroup addStudents(List<Person> persons);
+
+//	@WebMethod
+//	public MateGroup putTeacher(Teacher teacher);
 }

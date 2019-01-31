@@ -13,4 +13,6 @@ public interface MateGroupService {
 	public Response getMateGroup();
 
 	public Response addStudents(int groupId, Person person);
+
+//	public Response putTeacher(int groupId, Teacher teacher);
 }

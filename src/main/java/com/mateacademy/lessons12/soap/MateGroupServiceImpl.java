@@ -6,6 +6,7 @@ import javax.jws.WebService;
 
 import com.mateacademy.lessons11.MateGroup;
 import com.mateacademy.lessons11.Person;
+import com.mateacademy.lessons11.Teacher;
 
 /**
  * @author spasko
@@ -26,5 +27,11 @@ public class MateGroupServiceImpl implements MateGroupService {
 		mateGroup.getStudents().addAll(persons);
 		return mateGroup;
 	}
+
+//	@Override
+//	public MateGroup putTeacher(Teacher teacher) {
+//		mateGroup.setTeacher(teacher);
+//		return mateGroup;
+//	}
 
 }

@@ -13,4 +13,5 @@ public interface MateGroupService {
 	public Response getMateGroup();
 
 	public Response addStudents(int groupId, Person person);
+
 }

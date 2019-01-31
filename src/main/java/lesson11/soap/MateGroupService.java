@@ -25,6 +25,5 @@ public interface MateGroupService {
 	@WebMethod
 	public MateGroup addStudents(List<Person> persons);
 
-//	@WebMethod
-//	public MateGroup removeStudents(List<Person> persons);
+
 }

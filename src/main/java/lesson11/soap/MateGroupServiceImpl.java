@@ -27,9 +27,6 @@ public class MateGroupServiceImpl implements MateGroupService {
 		return mateGroup;
 	}
 
-//	@Override
-//	public MateGroup removeStudents(List<Person> persons) {
-//		mateGroup.getStudents().remove(persons);
-//		return mateGroup;
-//	}
 }
+
+
