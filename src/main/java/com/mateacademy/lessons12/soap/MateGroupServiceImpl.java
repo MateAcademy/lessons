@@ -28,10 +28,10 @@ public class MateGroupServiceImpl implements MateGroupService {
 		return mateGroup;
 	}
 
-//	@Override
-//	public MateGroup putTeacher(Teacher teacher) {
-//		mateGroup.setTeacher(teacher);
-//		return mateGroup;
-//	}
+	@Override
+	public MateGroup putTeacher(Teacher teacher) {
+		mateGroup.setTeacher(teacher);
+		return mateGroup;
+	}
 
 }
