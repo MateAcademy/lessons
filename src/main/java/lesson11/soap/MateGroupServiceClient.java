@@ -28,12 +28,12 @@ public class MateGroupServiceClient {
 
 		MateGroupService hello = service.getPort(MateGroupService.class);
 
-		System.out.println(hello.getMateGroup());
+		System.out.println(hello.getMateGroup(18122018));
 
 		List<Person> persons = new ArrayList<>();
 		persons.add(new Student("First", "First", 1995));
 		persons.add(new Teacher("Second", "Second", 1990, 666));
-		System.out.println(hello.addStudents(persons));
+		System.out.println(hello.addStudents(18122018, persons));
 
 	}
 

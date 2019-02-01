@@ -1,4 +1,4 @@
-package lesson11.rest;
+package com.mateacademy.lessons13.rest;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -19,9 +19,7 @@ public class Student extends Person {
 		return super.getSurname();
 	}
 
-	public Student() {
-
-	}
+	public Student() {}
 
 	public Student(String name, String surname, int yearOfBorn) {
 		super(name, surname, yearOfBorn);

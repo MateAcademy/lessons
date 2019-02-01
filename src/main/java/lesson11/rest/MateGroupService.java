@@ -10,8 +10,7 @@ import lesson10.xmljson.Person;
 
 public interface MateGroupService {
 
-	public Response getMateGroup();
+	public Response getMateGroup(int groupId);
 
 	public Response addStudents(int groupId, Person person);
-
 }
