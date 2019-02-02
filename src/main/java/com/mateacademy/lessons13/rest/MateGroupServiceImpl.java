@@ -16,7 +16,7 @@ import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.Status.OK;
 
 /**
- * Created by Tania Nebesna on 31.01.2019.
+ * Created by KL Sergey on 02.02.2019.
  */
 
 @Path("/rs/mate/{groupId}")
@@ -47,11 +47,6 @@ public class MateGroupServiceImpl implements MateGroupService{
 			return Response.status(ACCEPTED).entity(mateGroup).type(MediaType.APPLICATION_JSON).build();
 		}
 		return Response.status(NOT_FOUND).build();
-	}
-
-	@Override
-	public Response changeStudents(int groupId, String surname) {
-		return null;
 	}
 
 	@Override
