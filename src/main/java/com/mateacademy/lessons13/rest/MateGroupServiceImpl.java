@@ -84,7 +84,7 @@ public class MateGroupServiceImpl implements MateGroupService{
 	}
 
 	@Override
-	@PUT
+	@POST
 	@Path("/humanResources")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -106,8 +106,8 @@ public class MateGroupServiceImpl implements MateGroupService{
 		MateGroup mateGroup = mateGroups.get(groupId);
 		if (mateGroup != null) {
 			mateGroup.getHumanResources().removeIf(f -> f.getSurname().equals(surname));
-			return Response.status(Status.OK).entity(mateGroups.get(groupId).getHumanResources())
-					.type(MediaType.APPLICATION_JSON).build();
+//			return Response.status(Status.OK).entity(mateGroups.get(groupId).getHumanResources()).type(MediaType.APPLICATION_JSON).build();
+			return Response.status(ACCEPTED).entity(mateGroup).type(MediaType.APPLICATION_JSON).build();
 		}
 		return Response.status(Status.NOT_FOUND).build();
 	}
@@ -122,8 +122,8 @@ public class MateGroupServiceImpl implements MateGroupService{
 		if (mateGroup != null) {
 			mateGroup.getHumanResources().stream().filter((f -> f.getSurname().equals(surname)))
 					.collect(Collectors.toList()).forEach(f -> f.setStartWorkYear(newStartWorkYear));
-			return Response.status(Status.OK).entity(mateGroups.get(groupId).getHumanResources())
-					.type(MediaType.APPLICATION_JSON).build();
+//			return Response.status(Status.OK).entity(mateGroups.get(groupId).getHumanResources()).type(MediaType.APPLICATION_JSON).build();
+			return Response.status(ACCEPTED).entity(mateGroup).type(MediaType.APPLICATION_JSON).build();
 		}
 		return Response.status(Status.NOT_FOUND).build();
 	}
