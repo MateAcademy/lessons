@@ -84,8 +84,8 @@ public class MateGroupServiceImpl implements MateGroupService{
 	}
 
 	@Override
-	@POST
-	@Path("/humanResources")
+	@PUT
+	@Path("/hrs")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addHR(@PathParam("groupId")int groupId, HumanResource newHR) {
