@@ -12,10 +12,10 @@ public interface MateGroupService {
 	public Response getMateGroup(int groupId);
 
 	public Response addStudent(int groupId, Person person);
-
-	public Response changeStudents(int groupId, String surname);
-
+	
 	public Response removeStudent(int groupId, String surname);
 
 	public Response updateStudent(int groupId, String surname, String newname);
+
+
 }
