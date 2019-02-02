@@ -17,5 +17,13 @@ public interface MateGroupService {
 
 	public Response updateStudent(int groupId, String surname, String newname);
 
+	public Response addHR(int groupId, HumanResource newHR);
 
+	public Response removeHR(int groupId, String name);
+
+	public Response updateStartWorkYearHR(int groupId, String name, int newStartWorkYear);
+
+	public Response showAllHRs(int groupId);
+
+	public Response showSingleHR(int groupId, String surname);
 }

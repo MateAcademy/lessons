@@ -1,11 +1,13 @@
 package com.mateacademy.lessons13.rest;
 
+import com.mateacademy.lessons11.HumanResource;
 import com.mateacademy.lessons11.MateGroup;
 import com.mateacademy.lessons11.Person;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.function.Function;
@@ -79,5 +81,78 @@ public class MateGroupServiceImpl implements MateGroupService{
 		mateGroup.getStudents().removeIf(student -> student.getSurname().equals(surname));
 
 		return Response.status(ACCEPTED).entity(mateGroup).type(MediaType.APPLICATION_JSON).build();
+	}
+
+	@Override
+	@PUT
+	@Path("/hrs")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response addHR(@PathParam("groupId")int groupId, HumanResource newHR) {
+
+		MateGroup mateGroup = mateGroups.get(groupId);
+		if (mateGroup != null) {
+			mateGroup.getHumanResources().add(newHR);
+			return Response.status(ACCEPTED).entity(mateGroup).type(MediaType.APPLICATION_JSON).build();
+		}
+		return Response.status(Status.NOT_FOUND).build();
+	}
+
+	@Override
+	@DELETE
+	@Path("/hrs/{surname}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response removeHR(@PathParam("groupId")int groupId, @PathParam("surname")String surname) {
+		MateGroup mateGroup = mateGroups.get(groupId);
+		if (mateGroup != null) {
+			mateGroup.getHumanResources().removeIf(f -> f.getSurname().equals(surname));
+//			return Response.status(Status.OK).entity(mateGroups.get(groupId).getHumanResources()).type(MediaType.APPLICATION_JSON).build();
+			return Response.status(ACCEPTED).entity(mateGroup).type(MediaType.APPLICATION_JSON).build();
+		}
+		return Response.status(Status.NOT_FOUND).build();
+	}
+
+	@Override
+	@PUT
+	@Path("/hrs/{surname}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response updateStartWorkYearHR(@PathParam("groupId") int groupId, @PathParam("surname") String surname,
+										  @QueryParam("newStartWorkYear") int newStartWorkYear) {
+		MateGroup mateGroup = mateGroups.get(groupId);
+		if (mateGroup != null) {
+			mateGroup.getHumanResources().stream().filter((f -> f.getSurname().equals(surname)))
+					.collect(Collectors.toList()).forEach(f -> f.setStartWorkYear(newStartWorkYear));
+//			return Response.status(Status.OK).entity(mateGroups.get(groupId).getHumanResources()).type(MediaType.APPLICATION_JSON).build();
+			return Response.status(ACCEPTED).entity(mateGroup).type(MediaType.APPLICATION_JSON).build();
+		}
+		return Response.status(Status.NOT_FOUND).build();
+	}
+
+	@Override
+	@GET
+	@Path("/hrs")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response showAllHRs(@PathParam("groupId") int groupId) {
+		MateGroup mateGroup = mateGroups.get(groupId);
+		if (mateGroup != null) {
+			return Response.status(Status.OK).entity(mateGroups.get(groupId).getHumanResources())
+					.type(MediaType.APPLICATION_JSON).build();
+		}
+		return Response.status(Status.NOT_FOUND).build();
+	}
+
+	@Override
+	@GET
+	@Path("/hrs/{surname}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response showSingleHR(@PathParam("groupId") int groupId, @PathParam("surname") String surname) {
+		MateGroup mateGroup = mateGroups.get(groupId);
+		if (mateGroup != null) {
+			return Response.status(Status.OK)
+					.entity(mateGroups.get(groupId).getHumanResources().stream()
+							.filter(hr -> hr.getSurname().equals(surname)).collect(Collectors.toList()))
+					.type(MediaType.APPLICATION_JSON).build();
+		}
+		return Response.status(Status.NOT_FOUND).build();
 	}
 }
