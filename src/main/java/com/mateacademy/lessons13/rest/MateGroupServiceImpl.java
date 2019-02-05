@@ -67,7 +67,7 @@ public class MateGroupServiceImpl implements MateGroupService{
 		return Response.status(ACCEPTED).entity(mateGroup).type(MediaType.APPLICATION_JSON).build();
 	}
 
-	
+
 	@Override
 	@DELETE
 	@Path("/students/{surname}")
