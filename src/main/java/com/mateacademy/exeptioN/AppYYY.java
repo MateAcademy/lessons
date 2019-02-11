@@ -6,7 +6,7 @@ public class AppYYY {
         try {
             throw new RuntimeException();
         } catch (Error e) {
-            System.err.println("A");
+            System.err.println("Test");
         } catch (RuntimeException e) {
             System.err.println("B");
         } catch (Exception e) {

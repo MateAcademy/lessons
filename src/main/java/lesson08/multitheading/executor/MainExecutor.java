@@ -17,7 +17,7 @@ public class MainExecutor {
 		System.out.println("Start threads");
 
 		// add and start thread
-		executorService.execute(new Thread(new CountRunnable(commonResource, "A")));
+		executorService.execute(new Thread(new CountRunnable(commonResource, "Test")));
 		executorService.execute(new Thread(new CountRunnable(commonResource, "B")));
 		executorService.execute(new Thread(new CountRunnable(commonResource, "C")));
 		executorService.execute(new Thread(new CountRunnable(commonResource, "D")));

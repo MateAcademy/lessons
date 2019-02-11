@@ -42,7 +42,7 @@ public class GumballMachine {
 	}
  
 	void releaseBall() {
-		System.out.println("A gumball comes rolling out the slot...");
+		System.out.println("Test gumball comes rolling out the slot...");
 		if (count != 0) {
 			count = count - 1;
 		}

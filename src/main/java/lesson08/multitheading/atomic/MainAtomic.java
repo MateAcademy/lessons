@@ -18,7 +18,7 @@ public class MainAtomic {
 		System.out.println("Start threads");
 
 		// add and start thread
-		executorService.execute(new Thread(new CountRunnable(atomicInteger, "A")));
+		executorService.execute(new Thread(new CountRunnable(atomicInteger, "Test")));
 		executorService.execute(new Thread(new CountRunnable(atomicInteger, "B")));
 		executorService.execute(new Thread(new CountRunnable(atomicInteger, "C")));
 		executorService.execute(new Thread(new CountRunnable(atomicInteger, "D")));

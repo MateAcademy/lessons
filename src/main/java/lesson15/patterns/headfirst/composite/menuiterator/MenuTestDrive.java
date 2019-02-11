@@ -53,17 +53,17 @@ public class MenuTestDrive {
 			2.99));
 		dinerMenu.add(new MenuItem(
 			"Soup of the day",
-			"A bowl of the soup of the day, with a side of potato salad", 
+			"Test bowl of the soup of the day, with a side of potato salad",
 			false, 
 			3.29));
 		dinerMenu.add(new MenuItem(
 			"Hotdog",
-			"A hot dog, with saurkraut, relish, onions, topped with cheese",
+			"Test hot dog, with saurkraut, relish, onions, topped with cheese",
 			false, 
 			3.05));
 		dinerMenu.add(new MenuItem(
 			"Steamed Veggies and Brown Rice",
-			"A medly of steamed vegetables over brown rice", 
+			"Test medly of steamed vegetables over brown rice",
 			true, 
 			3.99));
  
@@ -87,7 +87,7 @@ public class MenuTestDrive {
 			1.99));
 		dessertMenu.add(new MenuItem(
 			"Sorbet",
-			"A scoop of raspberry and a scoop of lime",
+			"Test scoop of raspberry and a scoop of lime",
 			true,
 			1.89));
 
@@ -98,12 +98,12 @@ public class MenuTestDrive {
 			3.99));
 		cafeMenu.add(new MenuItem(
 			"Soup of the day",
-			"A cup of the soup of the day, with a side salad",
+			"Test cup of the soup of the day, with a side salad",
 			false, 
 			3.69));
 		cafeMenu.add(new MenuItem(
 			"Burrito",
-			"A large burrito, with whole pinto beans, salsa, guacamole",
+			"Test large burrito, with whole pinto beans, salsa, guacamole",
 			true, 
 			4.29));
  

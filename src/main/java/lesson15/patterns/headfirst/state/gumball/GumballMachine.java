@@ -62,7 +62,7 @@ public class GumballMachine {
  
 	public void dispense() {
 		if (state == SOLD) {
-			System.out.println("A gumball comes rolling out the slot");
+			System.out.println("Test gumball comes rolling out the slot");
 			count = count - 1;
 			if (count == 0) {
 				System.out.println("Oops, out of gumballs!");

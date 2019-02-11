@@ -20,7 +20,7 @@ public class WinnerState implements State {
 	}
  
 	public void dispense() {
-		System.out.println("YOU'RE A WINNER! You get two gumballs for your quarter");
+		System.out.println("YOU'RE Test WINNER! You get two gumballs for your quarter");
 		try {
 			gumballMachine.releaseBall();
 			if (gumballMachine.getCount() == 0) {
@@ -40,6 +40,6 @@ public class WinnerState implements State {
 	}
  
 	public String toString() {
-		return "despensing two gumballs for your quarter, because YOU'RE A WINNER!";
+		return "despensing two gumballs for your quarter, because YOU'RE Test WINNER!";
 	}
 }
