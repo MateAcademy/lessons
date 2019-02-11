@@ -363,32 +363,6 @@ GROUP BY
     c.company,
     c.cust_num,
     o.mfr;
-/*варіант з підзапитом*/
-
-SELECT
-    customers.cust_num,
-    customers.company,
-    AVG(salesreps.sales) AS avg_sales,
-    orders.mfr
-FROM
-    customers
-    INNER JOIN salesreps ON customers.cust_rep = salesreps.empl_num
-    INNER JOIN orders ON customers.cust_num = orders.cust
-    INNER JOIN (
-        SELECT
-            mfr_id,
-            COUNT(product_id)
-        FROM
-            products
-        GROUP BY
-            mfr_id
-        HAVING
-            COUNT(product_id) > 4
-    ) mfr_more_4_prod ON orders.mfr = mfr_more_4_prod.mfr_id
-GROUP BY
-    customers.cust_num,
-    customers.company,
-    orders.mfr;
 
 /*8. Вивести скільки мінімально і максимально замовлень (ордерів) виконували менеджери що мають в прямому підпорядкуванні більше двух людей*/
 
