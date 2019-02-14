@@ -79,7 +79,19 @@
 			<version>1.19.4</version>
 		</dependency>
 
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.38</version>
+			</dependency>
 
+		<dependency>
+			<groupId>org.oracle</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/ojdbc7.jar</systemPath>
+		</dependency>
 
 	</dependencies>
 
