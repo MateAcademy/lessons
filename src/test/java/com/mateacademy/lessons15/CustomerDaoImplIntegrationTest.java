@@ -4,7 +4,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Set;
 
@@ -13,9 +12,13 @@ import org.junit.Test;
 public class CustomerDaoImplIntegrationTest {
     private static final BigDecimal NOT_EXIST_CUSTOMER = BigDecimal.valueOf(90777);
     private static final BigDecimal SOME_RICH_CUSTOMERS = BigDecimal.valueOf(90);
-    private static final Customer MOST_VALUED_CUSTOMER = new Customer(BigDecimal.valueOf(2105), "Дурдом компании",
-            BigDecimal.valueOf(101), BigDecimal.valueOf(45.865));
+    private static final Customer MOST_VALUED_CUSTOMER = new Customer(BigDecimal.valueOf(3333), "Дурдом компании3",
+            BigDecimal.valueOf(103), BigDecimal.valueOf(500));
     private CustomerDao customerDao = new CustomerDaoImpl();
+
+    private static final Customer UPDATE_MOST_VALUED_CUSTOMER = new Customer(BigDecimal.valueOf(3333), "Дурдом компании4",
+            BigDecimal.valueOf(103), BigDecimal.valueOf(600));
+
 
     @Test
     public void testGetAllCustomers() throws SQLException{
@@ -43,6 +46,22 @@ public class CustomerDaoImplIntegrationTest {
         Set<Customer> customers = customerDao.findCustomersByCreditLimitMoreThan(BigDecimal.valueOf(46));
         System.out.println(customers);
         assertTrue(customers.contains(MOST_VALUED_CUSTOMER));
+    }
+
+    @Test
+    public void testInsertCustomer() throws SQLException {
+        assertTrue(customerDao.insertCustomer(MOST_VALUED_CUSTOMER));
+    }
+
+    @Test
+    public void test2UpdateCustomer() throws SQLException {
+        Customer expected = UPDATE_MOST_VALUED_CUSTOMER;
+        assertTrue(customerDao.updateCustomers(UPDATE_MOST_VALUED_CUSTOMER));
+    }
+
+    @Test
+    public void test3DeleteCustomer() throws SQLException {
+        assertTrue(customerDao.deleteCustomers(UPDATE_MOST_VALUED_CUSTOMER.getCustNum()));
     }
 
 }

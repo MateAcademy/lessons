@@ -46,4 +46,63 @@ public class CustomerDaoImpl implements CustomerDao {
         return customers;
     }
 
+    @Override
+    public boolean insertCustomer(Customer cast2) throws SQLException {
+        Connection connection = ConnectToDB.getConnection();
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO customers values (?, ?, ?, ?)");
+        statement.setBigDecimal(1, cast2.getCustNum());
+        statement.setString(2, cast2.getCompany());
+        statement.setBigDecimal(3, cast2.getCustRep());
+        statement.setBigDecimal(4, cast2.getCreditLimit());
+
+        int rowsInserted = statement.executeUpdate();
+        if (rowsInserted > 0) {
+            statement.close();
+            connection.close();
+            return true;
+        }
+        statement.close();
+        connection.close();
+        return false;
+    }
+
+    @Override
+    public boolean updateCustomers(Customer customer) throws SQLException {
+        Connection conn = ConnectToDB.getConnection();
+        String sql = "UPDATE customers SET company=?, credit_limit=?  WHERE cust_num=?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, customer.getCompany());
+        stmt.setBigDecimal(2, customer.getCreditLimit());
+        stmt.setBigDecimal(3, customer.getCustNum());
+
+        int rowsChanged = stmt.executeUpdate();
+        if (rowsChanged > 0) {
+            stmt.close();
+            conn.close();
+            return true;
+        }
+        stmt.close();
+        conn.close();
+        return false;
+    }
+
+    @Override
+    public boolean deleteCustomers(BigDecimal id) throws SQLException {
+        Connection conn = ConnectToDB.getConnection();
+        String sql = "DELETE FROM customers WHERE cust_num = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setBigDecimal(1, id);
+
+        int rowsChanged = stmt.executeUpdate();
+        if (rowsChanged > 0) {
+            stmt.close();
+            conn.close();
+            return true;
+        }
+        stmt.close();
+        conn.close();
+        return false;
+    }
+
+
 }
