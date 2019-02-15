@@ -1,5 +1,7 @@
 package com.mateacademy.lessons15;
 
+import static junit.framework.TestCase.assertFalse;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -13,9 +15,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class OrderDaoImplIntegrationTest {
-
 
     private static final BigDecimal ALREADY_EXIST_ORDER = BigDecimal.valueOf(113042);
     private static final BigDecimal ALREADY_EXIST_ORDER2 = BigDecimal.valueOf(2);
@@ -33,5 +34,20 @@ public class OrderDaoImplIntegrationTest {
         Order order = orderDao.findOrderById(ALREADY_EXIST_ORDER2);
         System.out.println(order);
         assertNull(order);
+    }
+
+    @Test
+    public void testGetAllOrders() throws SQLException {
+        Set<Order> orders = orderDao.getAllOrders();
+        System.out.println(orders);
+        assertFalse(orders.isEmpty());
+
+    }
+
+    @Test
+    public void testGetAllOrdersJoin() throws SQLException {
+        Set<Order> orders = orderDao.getAllOrdersJoin();
+        System.out.println(orders);
+        assertFalse(orders.isEmpty());
     }
 }
