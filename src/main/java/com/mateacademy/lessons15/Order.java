@@ -18,7 +18,6 @@ public class Order  implements java.io.Serializable {
     public Order() {
     }
 
-
     public Order(BigDecimal orderNum, Product product) {
         this.orderNum = orderNum;
         this.product = product;
