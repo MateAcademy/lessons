@@ -1,10 +1,7 @@
 package com.mateacademy.lessons15;
 
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +9,14 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public Set<Customer> getAllCustomers() throws SQLException {
+        Connection con = ConnectToDB.getConnection();
+        String queryStr = "SELECT * FROM emploue" +
+                "WHERE Iname = 'Wrong'";
+        Statement stmt2 =  con.createStatement();
+        ResultSet rs2 = stmt2.executeQuery(queryStr);
+
+
+
         Set<Customer> customers = new HashSet<>();
         Connection conn = ConnectToDB.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM customers");
