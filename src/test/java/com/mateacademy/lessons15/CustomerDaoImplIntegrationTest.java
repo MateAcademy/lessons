@@ -12,7 +12,7 @@ import org.junit.Test;
 public class CustomerDaoImplIntegrationTest {
     private static final BigDecimal NOT_EXIST_CUSTOMER = BigDecimal.valueOf(90777);
     private static final BigDecimal SOME_RICH_CUSTOMERS = BigDecimal.valueOf(90);
-    private static final Customer MOST_VALUED_CUSTOMER = new Customer(BigDecimal.valueOf(3333), "Дурдом компании3",
+    private static final Customer MOST_VALUED_CUSTOMER = new Customer(BigDecimal.valueOf(3335), "Дурдом компании3",
             BigDecimal.valueOf(103), BigDecimal.valueOf(500));
     private CustomerDao customerDao = new CustomerDaoImpl();
 
@@ -55,7 +55,6 @@ public class CustomerDaoImplIntegrationTest {
 
     @Test
     public void test2UpdateCustomer() throws SQLException {
-        Customer expected = UPDATE_MOST_VALUED_CUSTOMER;
         assertTrue(customerDao.updateCustomers(UPDATE_MOST_VALUED_CUSTOMER));
     }
 
