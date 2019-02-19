@@ -82,7 +82,7 @@ public class OrderDaoImpl implements OrderDao {
 			}
 			return order;
 	}
-	
+
 	@Override
 	public boolean insertOrder(Order order) throws SQLException {
 		return (new CRUDETemplate(){
@@ -121,20 +121,19 @@ public class OrderDaoImpl implements OrderDao {
 
 	@Override
 		public boolean deleteOrder(Order order) throws SQLException {
-		return (new CRUDETemplate() {
-			@Override
-			public PreparedStatement returnPrepareStatement(Order order, Connection connection) throws SQLException {
-				PreparedStatement statement;
-				String sql = "DELETE  orders WHERE order_num=?";
-				statement = connection.prepareStatement(sql);
-				statement.setBigDecimal(1, order.getOrderNum());
-				return statement;
-			}
-		}).templateOperation(order);
+		Runnable r = (()->{});
+		CRUDETemplate ct =(ord, connection) ->{
+			PreparedStatement statement;
+			String sql = "DELETE  orders WHERE order_num=?";
+			statement = connection.prepareStatement(sql);
+			statement.setBigDecimal(1, order.getOrderNum());
+			return statement;
+		};
+		return ct.templateOperation(order);
 	}
 
-	private abstract class CRUDETemplate {
-		public boolean templateOperation(Order order) throws SQLException {
+	private interface  CRUDETemplate {
+		public default boolean templateOperation(Order order) throws SQLException {
 			boolean result = false;
 			Connection connection = null;
 			PreparedStatement statement = null;
@@ -155,7 +154,7 @@ public class OrderDaoImpl implements OrderDao {
 
 		}
 
-		public abstract PreparedStatement returnPrepareStatement(Order order, Connection connection) throws SQLException;
+		public  PreparedStatement returnPrepareStatement(Order order, Connection connection) throws SQLException;
 	}
 
 //	@Override
