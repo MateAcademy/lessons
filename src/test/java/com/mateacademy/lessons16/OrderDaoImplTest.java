@@ -9,16 +9,18 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Set;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
-
-public class OrderTemplateTest {
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class OrderDaoImplTest {
 
     private static final BigDecimal NOT_EXIST_ORDER = BigDecimal.valueOf(-1);
     private static final BigDecimal ALREADY_EXIST_ORDER = BigDecimal.valueOf(112922);
-    private static final Order ORDER = new Order(BigDecimal.valueOf(12348), null, new Date(), null,
+    private static final Order ORDER = new Order(BigDecimal.valueOf(12350), null, new Date(), null,
             BigDecimal.valueOf(-1), null);
-    private OrderDao orderDao = new OrderTemplate();
+    private OrderDao orderDao = new OrderDaoImpl();
 
     @Test
     public void testGetAllOrders() throws SQLException {
@@ -42,28 +44,22 @@ public class OrderTemplateTest {
     }
 
     @Test
-    public void test1insertOrder() throws SQLException {
+    public void testInsertOrder() throws SQLException {
         assertTrue(orderDao.insertOrder(ORDER));
     }
 
     @Test
-    public void test2updateOrder() throws SQLException {
+    public void testUdateOrder() throws SQLException {
         ORDER.setAmount(BigDecimal.valueOf(-333));
         ORDER.setQty(BigDecimal.valueOf(-111));
         assertTrue(orderDao.updateOrder(ORDER));
     }
 
     @Test
-    public void test3deleteOrder() throws SQLException {
-        assertTrue(orderDao.deleteOrder(ORDER.getOrderNum()));
+    public void testDeleteOrder() throws SQLException {
+        assertTrue(orderDao.deleteOrder(ORDER));
     }
 
-    @Test
-    public void testinsertOrder() throws SQLException {
 
-        boolean ins = orderDao.insertOrder(ORDER);
-        System.out.println(ins);
-        assertTrue(ins);
-    }
 
 }
