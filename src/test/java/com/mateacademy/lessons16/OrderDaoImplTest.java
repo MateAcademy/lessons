@@ -9,18 +9,16 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Set;
 
-import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
 
 
-public class OrderDaoImplTest {
+public class OrderTemplateTest {
 
     private static final BigDecimal NOT_EXIST_ORDER = BigDecimal.valueOf(-1);
     private static final BigDecimal ALREADY_EXIST_ORDER = BigDecimal.valueOf(112922);
     private static final Order ORDER = new Order(BigDecimal.valueOf(12348), null, new Date(), null,
             BigDecimal.valueOf(-1), null);
-    private OrderDao orderDao = new OrderDaoImpl();
+    private OrderDao orderDao = new OrderTemplate();
 
     @Test
     public void testGetAllOrders() throws SQLException {
