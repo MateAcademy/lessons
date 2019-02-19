@@ -122,7 +122,7 @@ public class OrderDaoImpl implements OrderDao {
 	public boolean deleteOrder(Order order) throws SQLException {
 		Runnable r = (() -> {
 		});
-		CRUDETemplate ct = (ord, connection) -> {
+		CRUDETemplate<Order> ct = (ord, connection) -> {
 			PreparedStatement statement;
 			String sql = "DELETE  orders WHERE order_num=?";
 			statement = connection.prepareStatement(sql);
@@ -132,15 +132,15 @@ public class OrderDaoImpl implements OrderDao {
 		return ct.templateOperation(order);
 	}
 
-	private interface CRUDETemplate {
-		public default boolean templateOperation(Order order) throws SQLException {
+	private interface CRUDETemplate <T>{
+		public default boolean templateOperation(T order) throws SQLException {
 			boolean result = false;
 			Connection connection = null;
 			PreparedStatement statement = null;
 			try {
 				connection = ConnectToDB.getConnection();
 
-				statement = returnPrepareStatement(order, connection);
+				statement = returnPrepareStatement(order , connection);
 
 				int rowsInserted = statement.executeUpdate();
 				if (rowsInserted > 0) {
@@ -154,7 +154,7 @@ public class OrderDaoImpl implements OrderDao {
 
 		}
 
-		public PreparedStatement returnPrepareStatement(Order order, Connection connection) throws SQLException;
+		public PreparedStatement returnPrepareStatement(T order, Connection connection) throws SQLException;
 	}
 
 }
