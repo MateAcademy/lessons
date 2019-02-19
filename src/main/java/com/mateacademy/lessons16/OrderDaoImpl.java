@@ -66,26 +66,26 @@ public class OrderDaoImpl implements OrderDao {
 		ResultSet rs = null;
 		Order order = null;
 		try {
-			connection = ConnectToDB.getConnection();
-			stmt = connection.prepareStatement("SELECT * FROM  orders WHERE order_num=?");
-			stmt.setBigDecimal(1, id);
-			rs = stmt.executeQuery();
+				connection = ConnectToDB.getConnection();
+				stmt = connection.prepareStatement("SELECT * FROM  orders WHERE order_num=?");
+				stmt.setBigDecimal(1, id);
+				rs = stmt.executeQuery();
 
 			if (rs.next()) {
-				order = new Order(rs.getBigDecimal("order_Num"), null, rs.getDate("order_Date"), rs.getString("mfr"),
-						rs.getBigDecimal("qty"), rs.getBigDecimal("amount"));
+			order = new Order(rs.getBigDecimal("order_Num"), null, rs.getDate("order_Date"), rs.getString("mfr"),
+					rs.getBigDecimal("qty"), rs.getBigDecimal("amount"));
 			}
 		} finally {
-			rs.close();
-			stmt.close();
-			connection.close();
-		}
-		return order;
+				rs.close();
+				stmt.close();
+				connection.close();
+			}
+			return order;
 	}
 
 	@Override
 	public boolean insertOrder(Order order) throws SQLException {
-		return (new CRUDETemplate() {
+		return (new CRUDETemplate(){
 			@Override
 			public PreparedStatement returnPrepareStatement(Order order, Connection connection) throws SQLException {
 				PreparedStatement statement;
@@ -100,9 +100,10 @@ public class OrderDaoImpl implements OrderDao {
 	}
 
 
+
 	@Override
 	public boolean updateOrder(Order order) throws SQLException {
-		return (new CRUDETemplate() {
+		return (new CRUDETemplate(){
 			@Override
 			public PreparedStatement returnPrepareStatement(Order order, Connection connection) throws SQLException {
 				PreparedStatement statement;
@@ -119,34 +120,34 @@ public class OrderDaoImpl implements OrderDao {
 
 
 	@Override
-	public boolean deleteOrder(Order order) throws SQLException {
-		Runnable r = (() -> {
-		});
-		CRUDETemplate<Order> ct = (ord, connection) -> {
-			PreparedStatement statement;
-			String sql = "DELETE  orders WHERE order_num=?";
-			statement = connection.prepareStatement(sql);
-			statement.setBigDecimal(1, order.getOrderNum());
-			return statement;
-		};
-		return ct.templateOperation(order);
+		public boolean deleteOrder(Order order) throws SQLException {
+		return (new CRUDETemplate() {
+			@Override
+			public PreparedStatement returnPrepareStatement(Order order, Connection connection) throws SQLException {
+				PreparedStatement statement;
+				String sql = "DELETE  orders WHERE order_num=?";
+				statement = connection.prepareStatement(sql);
+				statement.setBigDecimal(1, order.getOrderNum());
+				return statement;
+			}
+		}).templateOperation(order);
 	}
 
-	private interface CRUDETemplate <T>{
-		public default boolean templateOperation(T order) throws SQLException {
+	private abstract class CRUDETemplate {
+		public boolean templateOperation(Order order) throws SQLException {
 			boolean result = false;
 			Connection connection = null;
 			PreparedStatement statement = null;
 			try {
 				connection = ConnectToDB.getConnection();
 
-				statement = returnPrepareStatement(order , connection);
+				statement =returnPrepareStatement(order, connection);
 
 				int rowsInserted = statement.executeUpdate();
 				if (rowsInserted > 0) {
 					result = true;
 				}
-			} finally {
+			}finally {
 				statement.close();
 				connection.close();
 			}
@@ -154,7 +155,6 @@ public class OrderDaoImpl implements OrderDao {
 
 		}
 
-		public PreparedStatement returnPrepareStatement(T order, Connection connection) throws SQLException;
+		public abstract PreparedStatement returnPrepareStatement(Order order, Connection connection) throws SQLException;
 	}
-
 }

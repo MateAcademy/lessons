@@ -22,6 +22,7 @@ public class OrderDaoImplTest {
             BigDecimal.valueOf(-1), null);
     private OrderDao orderDao = new OrderDaoImpl();
 
+
     @Test
     public void testGetAllOrders() throws SQLException {
         Set<Order> orders = orderDao.getAllOrders();
@@ -61,5 +62,20 @@ public class OrderDaoImplTest {
     }
 
 
+    @Test
+    public void insertOrder() throws SQLException{
+        assertTrue(orderDao.insertOrder(ORDER));
+    }
 
+    @Test
+    public void updateOrder() throws SQLException{
+        ORDER.setAmount(BigDecimal.valueOf(-333));
+        ORDER.setQty(BigDecimal.valueOf(-111));
+        assertTrue(orderDao.updateOrder(ORDER));
+    }
+
+    @Test
+    public void deleteOrder() throws SQLException{
+        assertTrue(orderDao.deleteOrder(ORDER));
+    }
 }
