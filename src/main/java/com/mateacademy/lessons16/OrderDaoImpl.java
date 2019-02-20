@@ -66,23 +66,93 @@ public class OrderDaoImpl implements OrderDao {
 		ResultSet rs = null;
 		Order order = null;
 		try {
-			connection = ConnectToDB.getConnection();
-			stmt = connection.prepareStatement("SELECT * FROM  orders WHERE order_num=?");
-			stmt.setBigDecimal(1, id);
-			rs = stmt.executeQuery();
+				connection = ConnectToDB.getConnection();
+				stmt = connection.prepareStatement("SELECT * FROM  orders WHERE order_num=?");
+				stmt.setBigDecimal(1, id);
+				rs = stmt.executeQuery();
 
 			if (rs.next()) {
-				order = new Order(rs.getBigDecimal("order_Num"), null, rs.getDate("order_Date"), rs.getString("mfr"),
-						rs.getBigDecimal("qty"), rs.getBigDecimal("amount"));
+			order = new Order(rs.getBigDecimal("order_Num"), null, rs.getDate("order_Date"), rs.getString("mfr"),
+					rs.getBigDecimal("qty"), rs.getBigDecimal("amount"));
 			}
 		} finally {
-			rs.close();
-			stmt.close();
-			connection.close();
-		}
-		return order;
+				rs.close();
+				stmt.close();
+				connection.close();
+			}
+			return order;
+	}
+
+	
+	public boolean insertOrder(Order order) throws SQLException {
+		return (new CRUDETemplate(){
+			@Override
+			public PreparedStatement returnPrepareStatement(Order order, Connection connection) throws SQLException {
+				PreparedStatement statement;
+				String sql = "INSERT INTO orders (order_num, order_date, qty)  VALUES (?, ?, ?)";
+				statement = connection.prepareStatement(sql);
+				statement.setBigDecimal(1, order.getOrderNum());
+				statement.setDate(2, new java.sql.Date(order.getOrderDate().getTime()));
+				statement.setBigDecimal(3, order.getQty());
+				return statement;
+			}
+		}).templateOperation(order);
+	}
+
+
+	public boolean updateOrder(Order order) throws SQLException {
+		return (new CRUDETemplate(){
+			@Override
+			public PreparedStatement returnPrepareStatement(Order order, Connection connection) throws SQLException {
+				PreparedStatement statement;
+				String sql = "UPDATE orders SET qty=?, amount=?  WHERE order_num=?";
+				statement = connection.prepareStatement(sql);
+				statement.setBigDecimal(3, order.getOrderNum());
+				statement.setBigDecimal(1, order.getQty());
+				statement.setBigDecimal(2, order.getAmount());
+				return statement;
+			}
+		}).templateOperation(order);
+
 	}
 
 
 
+		public boolean deleteOrder(Order order) throws SQLException {
+		return (new CRUDETemplate() {
+			@Override
+			public PreparedStatement returnPrepareStatement(Order order, Connection connection) throws SQLException {
+				PreparedStatement statement;
+				String sql = "DELETE  orders WHERE order_num=?";
+				statement = connection.prepareStatement(sql);
+				statement.setBigDecimal(1, order.getOrderNum());
+				return statement;
+			}
+		}).templateOperation(order);
+	}
+
+	private abstract class CRUDETemplate {
+		public boolean templateOperation(Order order) throws SQLException {
+			boolean result = false;
+			Connection connection = null;
+			PreparedStatement statement = null;
+			try {
+				connection = ConnectToDB.getConnection();
+
+				statement =returnPrepareStatement(order, connection);
+
+				int rowsInserted = statement.executeUpdate();
+				if (rowsInserted > 0) {
+					result = true;
+				}
+			}finally {
+				statement.close();
+				connection.close();
+			}
+			return result;
+
+		}
+
+		public abstract PreparedStatement returnPrepareStatement(Order order, Connection connection) throws SQLException;
+	}
 }

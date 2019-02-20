@@ -13,9 +13,9 @@ public interface OrderDao {
 
 	Order findOrderById(BigDecimal id) throws SQLException;
 
-	boolean insertOrder(Order order) throws SQLException;
-
-	boolean updateOrder(Order order) throws SQLException;
-
-	boolean deleteOrder(Order order) throws SQLException;
+//	boolean insertOrder(Order order) throws SQLException;
+//
+//	boolean updateOrder(Order order) throws SQLException;
+//
+//	boolean deleteOrder(Order order) throws SQLException;
 }
