@@ -2,7 +2,7 @@ package com.mateacademy.patterny.decorator;
 
 public class DeveloperDecorator implements Developer{
 
-    Developer developer;
+    private Developer developer;
 
     public DeveloperDecorator(Developer developer) {
         this.developer = developer;
