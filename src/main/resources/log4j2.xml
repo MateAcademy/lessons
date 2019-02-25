@@ -37,6 +37,7 @@
 
 	</Appenders>
 	<Loggers>
+		<AsyncLogger name="com.mchange.v2.log.MLog" level="error" />	
 
 		<AsyncLogger name="error-logger" level="ERROR">
 			<AppenderRef ref="FEMAIL" />

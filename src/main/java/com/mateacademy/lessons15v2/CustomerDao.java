@@ -1,4 +1,4 @@
-package com.mateacademy.lessons16;
+package com.mateacademy.lessons15v2;
 
 import com.mateacademy.lessons15.Customer;
 

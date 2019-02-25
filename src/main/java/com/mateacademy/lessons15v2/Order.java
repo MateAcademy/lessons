@@ -1,4 +1,4 @@
-package com.mateacademy.lessons16;
+package com.mateacademy.lessons15v2;
 // Generated Jan 26, 2019 11:24:41 AM by Hibernate Tools 5.2.10.Final
 
 
@@ -38,7 +38,7 @@ public class Order  implements java.io.Serializable {
     public BigDecimal getOrderNum() {
         return this.orderNum;
     }
-    
+
     public void setOrderNum(BigDecimal orderNum) {
         this.orderNum = orderNum;
     }

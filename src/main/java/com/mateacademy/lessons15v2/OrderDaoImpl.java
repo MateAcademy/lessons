@@ -1,4 +1,4 @@
-package com.mateacademy.lessons16;
+package com.mateacademy.lessons15v2;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -83,7 +83,7 @@ public class OrderDaoImpl implements OrderDao {
 			return order;
 	}
 
-	
+
 	public boolean insertOrder(Order order) throws SQLException {
 		return (new CRUDETemplate(){
 			@Override

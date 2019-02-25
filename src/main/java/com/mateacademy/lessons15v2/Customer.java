@@ -1,7 +1,6 @@
-package com.mateacademy.lessons16;
+package com.mateacademy.lessons15v2;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class Customer implements java.io.Serializable {
 

@@ -1,4 +1,4 @@
-//package com.mateacademy.lessons16;
+//package com.mateacademy.lessons15v2;
 //
 //import java.sql.Connection;
 //import java.sql.PreparedStatement;

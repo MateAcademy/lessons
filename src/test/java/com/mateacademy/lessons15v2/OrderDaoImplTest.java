@@ -1,4 +1,4 @@
-package com.mateacademy.lessons16;
+package com.mateacademy.lessons15v2;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -43,22 +43,22 @@ public class OrderDaoImplTest {
         assertNotNull(order);
     }
 
-    @Test
-    public void testInsertOrder() throws SQLException {
-        assertTrue(orderDao.insertOrder(ORDER));
-    }
-
-    @Test
-    public void testUdateOrder() throws SQLException {
-        ORDER.setAmount(BigDecimal.valueOf(-333));
-        ORDER.setQty(BigDecimal.valueOf(-111));
-        assertTrue(orderDao.updateOrder(ORDER));
-    }
-
-    @Test
-    public void testDeleteOrder() throws SQLException {
-        assertTrue(orderDao.deleteOrder(ORDER));
-    }
+//    @Test
+//    public void testInsertOrder() throws SQLException {
+//        assertTrue(orderDao.insertOrder(ORDER));
+//    }
+//
+//    @Test
+//    public void testUdateOrder() throws SQLException {
+//        ORDER.setAmount(BigDecimal.valueOf(-333));
+//        ORDER.setQty(BigDecimal.valueOf(-111));
+//        assertTrue(orderDao.updateOrder(ORDER));
+//    }
+//
+//    @Test
+//    public void testDeleteOrder() throws SQLException {
+//        assertTrue(orderDao.deleteOrder(ORDER));
+//    }
 
 
 

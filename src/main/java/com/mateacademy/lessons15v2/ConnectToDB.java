@@ -1,13 +1,11 @@
-package com.mateacademy.lessons16;
+package com.mateacademy.lessons15v2;
 
 import java.beans.PropertyVetoException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Locale;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import oracle.jdbc.driver.OracleDriver;
 
 /**
  * @author spasko

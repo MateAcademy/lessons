@@ -1,4 +1,4 @@
-package com.mateacademy.lessons16;
+package com.mateacademy.lessons15v2;
 // Generated Jan 26, 2019 11:24:41 AM by Hibernate Tools 5.2.10.Final
 
 
