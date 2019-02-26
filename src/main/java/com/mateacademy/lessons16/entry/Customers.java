@@ -19,6 +19,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "CUSTOMERS", schema = "MA_STUDENT")
 public class Customers implements java.io.Serializable {
+    public Customers() {
+    }
 
     private BigDecimal custNum;
     private Salesreps salesreps;
@@ -26,7 +28,7 @@ public class Customers implements java.io.Serializable {
     private BigDecimal creditLimit;
     private Set<Orders> orderses = new HashSet<Orders>(0);
 
-    public Customers() {
+    public Customers(BigDecimal bigDecimal, String scooby_doops, BigDecimal decimal, BigDecimal valueOf) {
     }
 
     public Customers(BigDecimal custNum) {
