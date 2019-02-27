@@ -1,12 +1,15 @@
 package com.mateacademy.lessons16;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
 
 import static org.junit.Assert.*;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CustomerDaoImplTest {
     private CustomerDaoImpl customersDao = new CustomerDaoImpl();
     Customers customer = new Customers(BigDecimal.valueOf(2223),
@@ -24,12 +27,9 @@ public class CustomerDaoImplTest {
         assertTrue(customersDao.updateCustomer(customer));
     }
 
-    //    @Test
-//    public void test3deleteCustomers() throws SQLException {
-//        assertTrue(customersDao.deleteCustomer(BigDecimal.valueOf(2222)));
-//    }
+
     @Test
     public void test3deleteCustomers() throws SQLException {
-        assertTrue(customersDao.deleteCustomer(BigDecimal.valueOf(2222)));
+        assertTrue(customersDao.deleteCustomer(BigDecimal.valueOf(2223)));
     }
 }
