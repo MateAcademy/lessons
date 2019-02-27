@@ -1,6 +1,6 @@
-package com.mateacademy.lessons16.ipa;
+package com.mateacademy.lessons16;
 
-import com.mateacademy.lessons16.entry.Orders;
+import com.mateacademy.lessons16.Orders;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -8,6 +8,8 @@ import java.util.Set;
 
 public interface OrderDao {
     Set<Orders> getAllOrders() throws SQLException;
+
+    Set<Orders> getAllOrdersInnerJoin() throws SQLException;
 
     Orders findOrderById(BigDecimal id) throws SQLException;
 

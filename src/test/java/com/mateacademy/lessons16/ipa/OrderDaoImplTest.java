@@ -1,8 +1,7 @@
 package com.mateacademy.lessons16.ipa;
 
-import com.mateacademy.lessons16.entry.Orders;
-import com.mateacademy.lessons16.ipa.OrderDao;
-import com.mateacademy.lessons16.ipa.OrderDaoImplTest;
+import com.mateacademy.lessons16.OrderDaoImpl;
+import com.mateacademy.lessons16.Orders;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -10,16 +9,13 @@ import org.junit.runners.MethodSorters;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.Date;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class OrderDaoImplTest {
-
-    private  Orders order = new Orders(BigDecimal.valueOf(12352), null, null, null, new Date(), null,
-            BigDecimal.valueOf(10), null);
-    private OrderDao orderDao = new OrderDaoImpl();
-
+    private OrderDaoImpl orderDao = new OrderDaoImpl();
+    Orders order = new Orders(BigDecimal.valueOf(7777), new Date(),
+            BigDecimal.valueOf(2103), BigDecimal.valueOf(103), "REI", "41004",BigDecimal.valueOf(222), BigDecimal.valueOf(2000));
 
     @Test
     public void test1InsertOrder() throws SQLException{
