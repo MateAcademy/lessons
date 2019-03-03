@@ -1,50 +1,98 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>MateAcademy</groupId>
-	<artifactId>MateAcademy</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+				   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>MateAcademy</groupId>
+<artifactId>MateAcademy</artifactId>
+<version>0.0.1-SNAPSHOT</version>
 
+	<properties>
+		<maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
+		<junit.version>4.12</junit.version>
+		<mockito-core.version>2.23.4</mockito-core.version>
+		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${maven-assembly-plugin.version}</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<finalName>Homeworks</finalName>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 	<dependencies>
-		<!--For tests -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>${junit.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>2.23.4</version>
+			<version>${mockito-core.version}</version>
 			<scope>test</scope>
 		</dependency>
-
-		<!--For jaxb -->
-		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-xjc</artifactId>
-			<version>2.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.ws</groupId>
-			<artifactId>jaxws-rt</artifactId>
-			<version>2.3.1</version>
-		</dependency>
-
-		<!--For json -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.9.8</version>
-		</dependency>
-
-		<!--For log -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
 			<version>2.11.1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-grizzly</artifactId>
+			<version>1.19.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.grizzly</groupId>
+			<artifactId>grizzly-servlet-webserver</artifactId>
+			<version>1.9.65</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>1.19.4</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.json</groupId>
+			<artifactId>javax.json-api</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.oracle</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>1.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/ojdbc7.jar</systemPath>
+		</dependency>
+		<!--<dependency>-->
+		<!--<groupId>org.glassfish</groupId>-->
+		<!--<artifactId>javax.json</artifactId>-->
+		<!--<version>1.1</version>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>com.lmax</groupId>
 			<artifactId>disruptor</artifactId>
@@ -56,71 +104,59 @@
 			<version>1.6.1</version>
 		</dependency>
 		<dependency>
-			<groupId>com.sun.mail</groupId>
-			<artifactId>smtp</artifactId>
-			<version>1.6.1</version>
-		</dependency>
-
-		<!-- Rest -->
-		<dependency>
-			<groupId>javax.ws.rs</groupId>
-			<artifactId>javax.ws.rs-api</artifactId>
-			<version>2.1.1</version>
-		</dependency>
-
-		<!-- Simple Jersey server -->
-		<dependency>
-			<groupId>org.glassfish.grizzly</groupId>
-			<artifactId>grizzly-http-server</artifactId>
-			<version>2.4.4</version>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-xjc</artifactId>
+			<version>2.3.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-grizzly2-http</artifactId>
-			<version>2.28</version>
-		</dependency>
-
-		<!-- Simple Jersey server -->
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-grizzly</artifactId>
-			<version>1.19.4</version>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-rt</artifactId>
+			<version>2.3.1</version>
 		</dependency>
 		<dependency>
-			<groupId>com.sun.grizzly</groupId>
-			<artifactId>grizzly-servlet-webserver</artifactId>
-			<version>1.9.65</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.8</version>
 		</dependency>
-
+		<!--<dependency>-->
+		<!--<groupId>org.eclipse.persistence</groupId>-->
+		<!--<artifactId>eclipselink</artifactId>-->
+		<!--<version>2.7.4</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+		<!--<groupId>org.eclipse.persistence</groupId>-->
+		<!--<artifactId>org.eclipse.persistence.moxy</artifactId>-->
+		<!--<version>2.6.0</version>-->
+		<!--</dependency>-->
+		<!-- https://mvnrepository.com/artifact/c3p0/c3p0 -->
 		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-json</artifactId>
-			<version>1.19.4</version>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
 		</dependency>
-
-		<!-- Oracle JDBC -->
-		<dependency>
-			<groupId>org.oracle</groupId>
-			<artifactId>ojdbc7</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/ojdbc7.jar</systemPath>
-		</dependency>
-
 		<!-- JPA -->
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>eclipselink</artifactId>
-			<version>2.7.4</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.eclipse.persistence</groupId>
-					<artifactId>jakarta.persistence</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-
+		<!--<dependency>-->
+		<!--<groupId>org.eclipse.persistence</groupId>-->
+		<!--<artifactId>eclipselink</artifactId>-->
+		<!--<version>2.7.4</version>-->
+		<!--<exclusions>-->
+		<!--<exclusion>-->
+		<!--<groupId>org.eclipse.persistence</groupId>-->
+		<!--<artifactId>jakarta.persistence</artifactId>-->
+		<!--</exclusion>-->
+		<!--</exclusions>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+		<!--<groupId>org.eclipse.persistence</groupId>-->
+		<!--<artifactId>org.eclipse.persistence.moxy</artifactId>-->
+		<!--<version>2.7.4</version>-->
+		<!--</dependency>-->
+		<!--&lt;!&ndash; Hibernate &ndash;&gt;-->
+		<!--<dependency>-->
+		<!--<groupId>org.hibernate</groupId>-->
+		<!--<artifactId>hibernate-core</artifactId>-->
+		<!--<version>5.4.1.Final</version>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
@@ -137,89 +173,5 @@
 			<artifactId>javax.persistence</artifactId>
 			<version>2.1.1</version>
 		</dependency>
-
-
-		<!-- Hibernate -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>5.4.1.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-c3p0</artifactId>
-			<version>5.4.1.Final</version>
-		</dependency>
-
-		<!-- Jersey2 -->
-		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-servlet</artifactId>
-			<version>2.28</version>
-		</dependency>
-		<dependency>
-
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-server</artifactId>
-			<version>2.28</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.inject</groupId>
-			<artifactId>jersey-hk2</artifactId>
-			<version>2.28</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.media</groupId>
-			<artifactId>jersey-media-json-jackson</artifactId>
-			<version>2.28</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.ext</groupId>
-			<artifactId>jersey-mvc-jsp</artifactId>
-			<version>2.28</version>
-		</dependency>
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-
-		<!-- Spring -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>5.1.5.RELEASE</version>
-		</dependency>
-
-
 	</dependencies>
-
-	<build>
-		<plugins>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.0</version>
-
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<includes>
-						<include>lesson18/*</include>
-					</includes>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.3</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
-		</plugins>
-
-	</build>
 </project>
