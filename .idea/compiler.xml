@@ -9,8 +9,5 @@
         <module name="MateAcademy" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="MateAcademy" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
