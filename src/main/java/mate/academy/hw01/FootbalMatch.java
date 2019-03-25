@@ -4,8 +4,6 @@ public class FootbalMatch {
     public static void main(String[] args) {
         FootbalMatch footbalMatch = new FootbalMatch();
 
-        System.out.println(false==false);
-
         System.out.println(footbalMatch.footballGame(0, 2, 1, 1));  //0
         System.out.println(footbalMatch.footballGame(2, 1, 2, 1));  //2
         System.out.println(footbalMatch.footballGame(3, 1, 2, 0));  //1
