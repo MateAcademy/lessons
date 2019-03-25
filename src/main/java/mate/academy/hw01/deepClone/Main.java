@@ -13,7 +13,7 @@ public class Main {
         Animals myObject2 = myAnimals.clone();
         System.out.println("myObject2.name = " + myObject2.name);
         System.out.println("myObject2.age = " + myObject2.newObject.age);
-        System.out.println(myAnimals.hashCode()==myObject2.hashCode());
+        System.out.println(myAnimals.hashCode() == myObject2.hashCode());
 
 //        myObject2.name = "Tiger";
 
@@ -35,10 +35,10 @@ class Animals implements Cloneable {
     Dog newObject;
 
     @Override
-    protected Animals clone()  {
+    protected Animals clone() {
         Animals animals = null;
         try {
-            animals = (Animals)super.clone();
+            animals = (Animals) super.clone();
             animals.newObject = newObject.clone();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
@@ -69,7 +69,7 @@ class Animals implements Cloneable {
     }
 }
 
-class Dog implements Cloneable{
+class Dog implements Cloneable {
     int age;
 
     @Override
@@ -87,7 +87,7 @@ class Dog implements Cloneable{
 
     @Override
     protected Dog clone() throws CloneNotSupportedException {
-        return (Dog)super.clone();
+        return (Dog) super.clone();
     }
 
     @Override
