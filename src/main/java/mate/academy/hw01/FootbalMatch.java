@@ -16,8 +16,10 @@ public class FootbalMatch {
     }
 
     private Integer footballGame(Integer scoreA, Integer scoreB, Integer betA, Integer betB) {
-        Integer result = ((scoreA == betA) && (scoreB == betB)) ? 2 : ((scoreA < scoreB) == (betA < betB)) ? 1 : 0;
-        return result;
+        boolean compare1 = (scoreA == betA) && (scoreB == betB);
+        boolean compare2 = (scoreA < scoreB) == (betA < betB);
+
+        return compare1 ? 2 : compare2 ? 1 : 0;
     }
 
 }
