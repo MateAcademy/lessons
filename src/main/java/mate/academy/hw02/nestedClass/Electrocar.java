@@ -4,14 +4,14 @@ public class Electrocar {
     private int id;
     private static int test;
 
-    //вложенный нестатический класс
+    //nested non-static class
     private class Motor {
         private void startMotor() {
             System.out.println("Motor " + id + " is starting..." + test);
         }
     }
 
-    //статический вложенный класс
+    //вложенный статический класс
     public static class Battery {
         public void charde() {
             System.out.println("Battery is charging..." + test);
