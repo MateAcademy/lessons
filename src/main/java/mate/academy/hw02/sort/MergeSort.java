@@ -2,7 +2,7 @@ package mate.academy.hw02.sort;
 
 import java.util.Arrays;
 
-public class SliyaniemSort {
+public class MergeSort {
 
     public static void main(String[] args) {
         int[] arr = {2, 1, 0, 6, 1, 9, 8, 7};//тестовый массив

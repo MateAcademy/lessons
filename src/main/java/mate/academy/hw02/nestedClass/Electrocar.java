@@ -28,18 +28,17 @@ public class Electrocar {
         motor.startMotor();
         final int power = 1;
 
-        class SomeClass {
-            public void someMethod() {
+        class Bmw {
+            public void run() {
                 System.out.println(power);
                 System.out.println(id);
             }
         }
-        SomeClass someObject = new SomeClass();
+        Bmw someObject = new Bmw();
         test(someObject);
         System.out.println("Electrocar " + id + " is starting...");
     }
 
     private void test(Object object) {
-
     }
 }
