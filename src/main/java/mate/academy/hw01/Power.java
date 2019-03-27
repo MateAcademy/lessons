@@ -3,7 +3,7 @@ package mate.academy.hw01;
 public class Power {
     public static void main(String[] args) {
         Power power = new Power();
-        Integer number = 5;
+        Integer number = 6;
         Integer power2 = 2;
         Integer power3 = 3;
 

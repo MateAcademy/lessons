@@ -2,12 +2,11 @@ package mate.academy.hw01;
 
 public class Rhombus {
     public static void main(String[] args) {
-        rhombusDisplay();
+        System.out.println("Size of Rhombus = 3");
+        rhombusDisplay(3);
     }
 
-    private static void rhombusDisplay() {
-        System.out.println("Size of Rhombus = 3");
-        int point = 3;
+    private static void rhombusDisplay(int point) {
 
         float center = point / 2;
 

@@ -7,7 +7,7 @@ public class Matrix {
     static Integer[][] arr;
 
     public static void main(String[] args) {
-        arr = createArray(3, 3);
+        arr = createArray(4, 3);
         System.out.println(Arrays.deepToString(arr));
         foundMinMax(arr);
     }
