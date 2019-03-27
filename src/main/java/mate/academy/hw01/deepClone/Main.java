@@ -15,10 +15,8 @@ public class Main {
         System.out.println("myObject2.age = " + myObject2.newObject.age);
         System.out.println(myAnimals.hashCode() == myObject2.hashCode());
 
-//        myObject2.name = "Tiger";
-
         System.out.println(myAnimals.name);
-//        myObject2.newObject.age = 2;
+
         myObject2.newObject.age = 3;
         System.out.println("myObject2.age = " + myObject2.newObject.age);
         System.out.println("myAnimals.age = " + myAnimals.newObject.age + "\n");
