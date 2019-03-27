@@ -4,7 +4,7 @@ public class Popcorn {
     void doSomthing() {
         System.out.println("popcorn");
     }
-    void secondMethod() {
+    void friedPopcorn() {
         System.out.println("second");
     }
 }
@@ -20,16 +20,16 @@ class Main {
             }
 
             @Override
-            void secondMethod() {
-                System.out.println("first");
+            void friedPopcorn() {
+                System.out.println("I like fried popcorn");
             }
         };
         popcorn.doSomthing();
-        popcorn.secondMethod();
+        popcorn.friedPopcorn();
     }
 
 
-    private void doThomthimg() {
+    private void doSomthing() {
         class Book {
             public void reed() {
                 System.out.println("This is lokal class");
