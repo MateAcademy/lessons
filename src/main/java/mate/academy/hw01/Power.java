@@ -13,10 +13,10 @@ public class Power {
     }
 
     private Integer getPower(Integer number, Integer power) {
-        Integer rezalt = 1;
+        Integer result = 1;
         for (int i = 1; i <= power; i++) {
-            rezalt = rezalt * number;
+            result = result * number;
         }
-        return rezalt;
+        return result;
     }
 }

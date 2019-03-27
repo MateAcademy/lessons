@@ -9,7 +9,7 @@ public class Matrix {
     public static void main(String[] args) {
         arr = createArray(4, 3);
         System.out.println(Arrays.deepToString(arr));
-        foundMinMax(arr);
+        findMinMax(arr);
     }
 
     private static Integer[][] createArray(Integer m, Integer n) {
@@ -23,7 +23,7 @@ public class Matrix {
         return array;
     }
 
-    private static void foundMinMax(Integer[][] array) {
+    private static void findMinMax(Integer[][] array) {
         Integer min = array[0][0];
         Integer max = min;
 
