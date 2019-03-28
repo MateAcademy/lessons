@@ -43,7 +43,7 @@ class MyThread extends Thread {
 //            System.out.println("Thread name is - " + Thread.currentThread().getName() + " i = " + i);
 //        }
 
-//       someMethod();
+//       run();
     }
     private void someMethod() {
         throw new RuntimeException();
