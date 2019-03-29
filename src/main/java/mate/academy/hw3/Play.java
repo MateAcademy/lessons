@@ -6,7 +6,7 @@ public class Play {
                 "Городничий", "Аммос Федорович",
                 "Артемий Филиппович",
                 "Лука Лукич"};
-        String[] plot = {
+        String[] textLines = {
                 "Городничий: Я пригласил вас, господа, с тем, чтобы сообщить вам пренеприятное известие: к нам едет ревизор.",
                 "Аммос Федорович: Как ревизор?",
                 "Артемий Филиппович: Как ревизор?",
@@ -14,31 +14,30 @@ public class Play {
                 "Аммос Федорович: Вот те на!",
                 "Артемий Филиппович: Вот не было заботы, так подай!",
                 "Лука Лукич: Господи боже! еще и с секретным предписаньем!"};
-        StringBuilder result = printText(roles, plot);
+        StringBuilder result = printText(roles, textLines);
         System.out.println(result);
     }
 
-    public static StringBuilder printText(String[] roles, String[] plot) {
+    public static StringBuilder printText(String[] roles, String[] textLines) {
         StringBuilder result = new StringBuilder();
 
         for (String role : roles) {
             result.append(role)
                     .append(":\n")
-                    .append(printActorReplics(role, plot))
+                    .append(printActorReplics(role, textLines))
                     .append("\n");
         }
         return result;
     }
 
-    public static StringBuilder printActorReplics(String role, String[] plot) {
+    public static StringBuilder printActorReplics(String role, String[] textLines) {
         StringBuilder answer = new StringBuilder();
-        for (int i = 0; i < plot.length; i++) {
-            if (plot[i].startsWith(role + ":")) {
+        for (int i = 0; i < textLines.length; i++) {
+            if (textLines[i].startsWith(role + ":")) {
                 answer.append(i + 1)
                         .append(")")
-                        .append(plot[i].substring(role.length() + 1))
+                        .append(textLines[i].substring(role.length() + 1))
                         .append("\n");
-
             }
         }
         return answer;
