@@ -7,7 +7,7 @@ FROM
     INNER JOIN customers   c1 ON o1.cust = c1.cust_num
 WHERE
     p1.description LIKE '%a%'
-    OR p1.description LIKE '%Test%'
+    OR p1.description LIKE '%Play%'
     OR p1.description LIKE '%�%'
     OR p1.description LIKE '%�%';
 --

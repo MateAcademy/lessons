@@ -22,7 +22,7 @@ public class ImageProxyTestDrive {
         cds.put("Buddha Bar","http://images.amazon.com/images/P/B00009XBYK.01.LZZZZZZZ.jpg");
         cds.put("Ima","http://images.amazon.com/images/P/B000005IRM.01.LZZZZZZZ.jpg");
         cds.put("Karma","http://images.amazon.com/images/P/B000005DCB.01.LZZZZZZZ.gif");
-        cds.put("MCMXC Test.D.","http://images.amazon.com/images/P/B000002URV.01.LZZZZZZZ.jpg");
+        cds.put("MCMXC Play.D.","http://images.amazon.com/images/P/B000002URV.01.LZZZZZZZ.jpg");
         cds.put("Northern Exposure","http://images.amazon.com/images/P/B000003SFN.01.LZZZZZZZ.jpg");
         cds.put("Selected Ambient Works, Vol. 2","http://images.amazon.com/images/P/B000002MNZ.01.LZZZZZZZ.jpg");
 

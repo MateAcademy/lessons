@@ -14,10 +14,10 @@ public class MuLink {
         b2.str="My String";
         System.out.println(b1.str);
 
-        String a1 = "Test";
+        String a1 = "Play";
         String a2 = a1;
         System.out.println(a2);
-        a1 = "Not a Test";
+        a1 = "Not a Play";
         System.out.println(a2);
     }
 }

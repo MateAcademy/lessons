@@ -1,16 +1,16 @@
 //package com.mateacademy.test;
 //
-//public class Test {
+//public class Play {
 //    final  String s;
 //
-//    public Test() {
+//    public Play() {
 //        s = "default";
 //    }
 //
-//    public Test(String s) {
+//    public Play(String s) {
 //    }
 //
 //    public static void main(String[] args) {
-//        System.out.println(new Test().s);
+//        System.out.println(new Play().s);
 //    }
 //}

@@ -20,11 +20,11 @@ import static org.junit.Assert.assertTrue;
 //        Orders order = new Orders(BigDecimal.valueOf(123456), new Date(),
 //                BigDecimal.valueOf(2103), BigDecimal.valueOf(103), "REI", new Products(),BigDecimal.valueOf(222), BigDecimal.valueOf(2000));
 
-        //    @Test
+        //    @Play
 //    public void test1InsertOrder() throws SQLException{
 //    assertTrue(orderDao.insertOrder(order));
 //    }
-//    @Test
+//    @Play
 //    public void test2updateOrder() throws SQLException {
 //        order.setAmount(BigDecimal.valueOf(333));
 //        order.setQty(BigDecimal.valueOf(999));
@@ -34,7 +34,7 @@ import static org.junit.Assert.assertTrue;
         public void test3deleteOrder() throws SQLException {
             assertTrue(orderDao.deleteOrder(BigDecimal.valueOf(123456)));
         }
-        //   @Test
+        //   @Play
 //   public void test4findOrderById() throws SQLException {
 //     assertTrue(orderDao.findOrderById(BigDecimal.valueOf(2222));
 //

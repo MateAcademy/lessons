@@ -10,10 +10,10 @@ public class CafeMenu implements Menu {
 			"Veggie burger on a whole wheat bun, lettuce, tomato, and fries",
 			true, 3.99);
 		addItem("Soup of the day",
-			"Test cup of the soup of the day, with a side salad",
+			"Play cup of the soup of the day, with a side salad",
 			false, 3.69);
 		addItem("Burrito",
-			"Test large burrito, with whole pinto beans, salsa, guacamole",
+			"Play large burrito, with whole pinto beans, salsa, guacamole",
 			true, 4.29);
 	}
  

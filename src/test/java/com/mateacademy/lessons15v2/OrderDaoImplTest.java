@@ -43,19 +43,19 @@ public class OrderDaoImplTest {
         assertNotNull(order);
     }
 
-//    @Test
+//    @Play
 //    public void testInsertOrder() throws SQLException {
 //        assertTrue(orderDao.insertOrder(ORDER));
 //    }
 //
-//    @Test
+//    @Play
 //    public void testUdateOrder() throws SQLException {
 //        ORDER.setAmount(BigDecimal.valueOf(-333));
 //        ORDER.setQty(BigDecimal.valueOf(-111));
 //        assertTrue(orderDao.updateOrder(ORDER));
 //    }
 //
-//    @Test
+//    @Play
 //    public void testDeleteOrder() throws SQLException {
 //        assertTrue(orderDao.deleteOrder(ORDER));
 //    }
