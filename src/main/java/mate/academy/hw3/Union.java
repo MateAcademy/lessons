@@ -16,24 +16,24 @@ public class Union {
     public static int[] mergeArrays(int[] a1, int[] a2) {
         int[] result = new int[a1.length + a2.length];
 
-        int i=0, j=0;
+        int firstElemA1=0, firstElemA2=0;
         for (int k=0; k<result.length; k++) {
 
-            if (i > a1.length-1) {
-                result[k] = a2[j];
-                j++;
+            if (firstElemA1 > a1.length-1) {
+                result[k] = a2[firstElemA2];
+                firstElemA2++;
             }
-            else if (j > a2.length-1) {
-                result[k] = a1[i];
-                i++;
+            else if (firstElemA2 > a2.length-1) {
+                result[k] = a1[firstElemA1];
+                firstElemA1++;
             }
-            else if (a1[i] < a2[j]) {
-                result[k] = a1[i];
-                i++;
+            else if (a1[firstElemA1] < a2[firstElemA2]) {
+                result[k] = a1[firstElemA1];
+                firstElemA1++;
             }
             else {
-                result[k] =a2[j];
-                j++;
+                result[k] =a2[firstElemA2];
+                firstElemA2++;
             }
         }
         return result;
