@@ -14,13 +14,18 @@ public class MyLinkedList<T> {
         if (size == 0) {
             firstNode = new Node(null, null, value);
             lastNode = firstNode;
-            size++;
+        } else if (size == 1) {
+            lastNode = new Node(firstNode, null, value);
+            firstNode.next = lastNode;
+//            Node<T> currNode = new Node(lastNode,null, value);
+//            lastNode = currNode;
+//            lastNode.next = null;
         } else {
-            Node<T> currNode = new Node(lastNode,null, value);
-            lastNode = currNode;
-            size++;
+            Node<T> currentNode = new Node<>(lastNode, null, value);
+            lastNode.next = currentNode;
+            lastNode = currentNode;
         }
-
+        size++;
     }
 
     @Override
