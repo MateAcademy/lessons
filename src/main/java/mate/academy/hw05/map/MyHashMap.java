@@ -5,12 +5,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-public class ReferenceBook<K, V> implements Book<K, V> {
+public class MyHashMap<K, V> implements Book<K, V> {
     private Node<K, V>[] hashTable;
     private int size = 0;
     private float threshold;
 
-    public ReferenceBook() {
+    public MyHashMap() {
         hashTable = new Node[16];
         threshold = hashTable.length * 0.75f;
     }
@@ -116,7 +116,7 @@ public class ReferenceBook<K, V> implements Book<K, V> {
         int index = hash(key);
         if (index < hashTable.length &&
                 hashTable[index] != null) {
-            
+
             if (hashTable[index].getNodes().size() == 1) {
                 return hashTable[index].getNodes().get(0).getValue();
             }
