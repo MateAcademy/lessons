@@ -1,16 +1,16 @@
-package mate.academy.less04.map;
+package mate.academy.hw05.map;
 
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-public class ReferenceBook<K, V> implements Book<K, V> {
+public class MyHashMap<K, V> implements Book<K, V> {
     private Node<K, V>[] hashTable;
     private int size = 0;
     private float threshold;
 
-    public ReferenceBook() {
+    public MyHashMap() {
         hashTable = new Node[16];
         threshold = hashTable.length * 0.75f;
     }
@@ -47,16 +47,15 @@ public class ReferenceBook<K, V> implements Book<K, V> {
         return true;
     }
 
-    private boolean keyExistButValueNew (
+    private boolean keyExistButValueNew(
             final Node<K, V> nodeFromList,
             final Node<K, V> newNode,
             final V value) {
 
-        if (newNode.getKey().equals(nodeFromList.getKey())&&
-            !newNode.getValue().equals(nodeFromList.getValue()))
-         {
-    nodeFromList.setValue(value);
-    return true;
+        if (newNode.getKey().equals(nodeFromList.getKey()) &&
+                !newNode.getValue().equals(nodeFromList.getValue())) {
+            nodeFromList.setValue(value);
+            return true;
         }
         return false;
     }
@@ -66,57 +65,62 @@ public class ReferenceBook<K, V> implements Book<K, V> {
             final Node<K, V> newNode,
             final List<Node<K, V>> nodes) {
 
-    if (newNode.hashCode() == nodeFromList.hashCode()&&
-    !Objects.equals(newNode.key, nodeFromList.key)&&
-    !Objects.equals(newNode.value, nodeFromList.value)
-    ) {
+        if (newNode.hashCode() == nodeFromList.hashCode() &&
+                !Objects.equals(newNode.key, nodeFromList.key) &&
+                !Objects.equals(newNode.value, nodeFromList.value)
+        ) {
 
-        nodes.add(newNode);
-        size++;
-        return true;
-    }
-    return false;
+            nodes.add(newNode);
+            size++;
+            return true;
+        }
+        return false;
     }
 
     private void arrayDoubling() {
-    Node<K,V>[] oldHashTable = hashTable;
-    hashTable = new Node[oldHashTable.length*2];
-    size = 0;
-    for (Node<K, V> node: oldHashTable) {
-        if (node != null) {
-            for (Node<K, V> n : node.getNodes()) {
-                insert(n.key, n.value);
+        Node<K, V>[] oldHashTable = hashTable;
+        hashTable = new Node[oldHashTable.length * 2];
+        size = 0;
+        for (Node<K, V> node : oldHashTable) {
+            if (node != null) {
+                for (Node<K, V> n : node.getNodes()) {
+                    insert(n.key, n.value);
+                }
             }
         }
     }
-    }
 
     @Override
-    public boolean delete (final K key) {
-    int index = hash(key);
-    if (hashTable[index] == null)
-        return false;
+    public boolean delete(final K key) {
+        int index = hash(key);
+        if (hashTable[index] == null)
+            return false;
 
-    if (hashTable[index].getNodes().size() == 1) {
-        hashTable[index].getNodes().remove(0);
-        return true;
-    }
-
-    List<Node<K, V>> nodeList = hashTable[index].getNodes();
-    for (Node<K, V> node : nodeList) {
-        if (key.equals(node.getKey())) {
-            nodeList.remove(node);
+        if (hashTable[index].getNodes().size() == 1) {
+            hashTable[index].getNodes().remove(0);
             return true;
         }
-    }
-    return false;
+
+        List<Node<K, V>> nodeList = hashTable[index].getNodes();
+        for (Node<K, V> node : nodeList) {
+            if (key.equals(node.getKey())) {
+                nodeList.remove(node);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public V get(final K key) {
         int index = hash(key);
-        if (index<hashTable.length &&
-        hashTable[index] !=null) {
+        if (index < hashTable.length &&
+                hashTable[index] != null) {
+
+            if (hashTable[index].getNodes().size() == 1) {
+                return hashTable[index].getNodes().get(0).getValue();
+            }
+
             List<Node<K, V>> list = hashTable[index].getNodes();
             for (Node<K, V> node : list) {
                 if (key.equals(node.getKey())) {
@@ -128,14 +132,14 @@ public class ReferenceBook<K, V> implements Book<K, V> {
     }
 
     @Override
-    public int size () {
+    public int size() {
         return size;
     }
 
     private int hash(final K key) {
         int hash = 31;
-        hash = hash*17 + key.hashCode();
-        return hash%hashTable.length;
+        hash = hash * 17 + key.hashCode();
+        return hash % hashTable.length;
     }
 
     @Override
@@ -147,11 +151,11 @@ public class ReferenceBook<K, V> implements Book<K, V> {
 
             @Override
             public boolean hasNext() {
-                if (valuesCounter==size)
-                return false;
+                if (valuesCounter == size)
+                    return false;
 
-                if (subIterator==null||!subIterator.hasNext()){
-                    if (moveToNextCell()){
+                if (subIterator == null || !subIterator.hasNext()) {
+                    if (moveToNextCell()) {
                         subIterator = hashTable[counterArray].getNodes().iterator();
                     } else {
                         return false;
@@ -162,10 +166,10 @@ public class ReferenceBook<K, V> implements Book<K, V> {
 
             private boolean moveToNextCell() {
                 counterArray++;
-                while (hashTable[counterArray] == null){
+                while (hashTable[counterArray] == null) {
                     counterArray++;
                 }
-                return hashTable[counterArray] !=null;
+                return hashTable[counterArray] != null;
             }
 
             @Override
@@ -187,19 +191,23 @@ public class ReferenceBook<K, V> implements Book<K, V> {
             this.value = value;
             nodes = new LinkedList<Node<K, V>>();
         }
+
         private List<Node<K, V>> getNodes() {
             return nodes;
         }
 
         private int hash() {
-            return hashCode()%hashTable.length;
+            return hashCode() % hashTable.length;
         }
+
         private K getKey() {
             return key;
         }
+
         private V getValue() {
             return value;
         }
+
         private void setValue(V value) {
             this.value = value;
         }
@@ -207,7 +215,7 @@ public class ReferenceBook<K, V> implements Book<K, V> {
         @Override
         public int hashCode() {
             hash = 31;
-            hash = hash*17 + key.hashCode();
+            hash = hash * 17 + key.hashCode();
             return hash;
         }
 
@@ -217,9 +225,9 @@ public class ReferenceBook<K, V> implements Book<K, V> {
                 return true;
 
             if (obj instanceof Node) {
-                Node<K,V> node = (Node) obj;
-                return (Objects.equals(key, node.getKey())&&
-                        Objects.equals(value, node.getValue())||
+                Node<K, V> node = (Node) obj;
+                return (Objects.equals(key, node.getKey()) &&
+                        Objects.equals(value, node.getValue()) ||
                         Objects.equals(hash, node.hashCode()));
             }
             return false;
