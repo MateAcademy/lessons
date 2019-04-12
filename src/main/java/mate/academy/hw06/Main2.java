@@ -1,15 +1,20 @@
 package mate.academy.hw06;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-
-        Animal[] animals = new Animal[2];
-        animals[0] = new Animal("Cat");
-        animals[1] = new Animal("Dog");
-
+public class Main2 {
+    public static void main(String[] args) {
+        Animal[] animals = new Animal[5];
+        animals[0] = new Animal("Gorilla");
+        animals[1] = new Animal("Cat");
+        animals[2] = new Animal("Dog");
+        animals[3] = new Animal("Turtle");
+        animals[4] = new Animal("Dolphin");
         byte[] byteArrayAnimals = null;
 
         try (ByteArrayOutputStream outputArray = new ByteArrayOutputStream();
@@ -25,9 +30,9 @@ public class Main {
         }
 
         System.out.println(Arrays.toString(animals));
+        System.out.println(Arrays.toString(byteArrayAnimals));
         Animal[] deserializeAnimal = deserializeAnimalArray(byteArrayAnimals);
         System.out.println(Arrays.toString(deserializeAnimal));
-
     }
 
     public static Animal[] deserializeAnimalArray(byte[] data) {

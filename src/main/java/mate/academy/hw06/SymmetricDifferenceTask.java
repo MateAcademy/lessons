@@ -32,5 +32,5 @@ public class SymmetricDifferenceTask {
         symmetricDifference.addAll(set2);
         return symmetricDifference;
     }
-    
+
 }
