@@ -1,4 +1,4 @@
-package mate.academy.hw09;
+package mate.academy.hw09.task64;
 
 public class MailMessage implements Sendable<String> {
 

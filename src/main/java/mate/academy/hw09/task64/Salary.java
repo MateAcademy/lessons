@@ -1,6 +1,6 @@
-package mate.academy.hw09;
+package mate.academy.hw09.task64;
 
-public class Salary implements Sendable<Integer>{
+public class Salary implements Sendable<Integer> {
     String firma;
     String name;
     int number;
