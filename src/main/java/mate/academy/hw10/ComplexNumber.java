@@ -30,6 +30,9 @@ public class ComplexNumber {
 
     @Override
     public int hashCode() {
-        return Objects.hash(re, im);
+        int k = 31;
+        int k2 = 2;
+        int rez = (int)(k+re + k2+ im);
+        return rez;
     }
 }
