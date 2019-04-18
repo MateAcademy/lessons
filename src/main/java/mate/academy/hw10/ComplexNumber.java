@@ -28,11 +28,17 @@ public class ComplexNumber {
                 Double.compare(that.im, im) == 0;
     }
 
+//    @Override
+//    public int hashCode() {
+//        int k = 31;
+//        int k2 = 2;
+//        int rez = (int)(k+re + k2+ im);
+//        return rez;
+//    }
+
+
     @Override
     public int hashCode() {
-        int k = 31;
-        int k2 = 2;
-        int rez = (int)(k+re + k2+ im);
-        return rez;
+        return super.hashCode();
     }
 }
